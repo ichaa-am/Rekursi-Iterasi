@@ -1,0 +1,39 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+int factorial(int);
+void alokasi();
+
+int main()
+{
+    char answer;
+    do
+    {
+        alokasi();
+        printf("\nIngin hitung lagi (y/t)?");
+        scanf("%c", &answer);
+        fflush(stdin);
+        puts("");
+    }while(answer=='y' || answer=='Y');
+    puts("TERIMAKASIH")
+}
+
+void alokasi()
+{
+    int n;
+    long int hasil;
+    printf("Masukkan nilai faktorial :");
+    scanf("%d", &n);
+    fflush(stdin);
+    hasil = factorial(n);
+    printf("hasil faktorial = %d", hasil);
+    return 0;
+}
+
+int factorial(int n)
+{
+    int i, hasil2=1;
+    for(i=1; i<=n; i++)
+        hasil2=hasil2*i;
+    return (hasil2);
+}
