@@ -1,0 +1,80 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+void menu();
+void alokasi();
+int rekursi(int);
+int iterasi(int);
+
+int main()
+{
+    do
+    {
+        menu();
+    }while(1);
+    return 0;
+}
+
+/*void alokasi()
+{
+    int n;
+    printf("Masukkan nilai faktorial:");
+    scanf("%d", &n);
+    fflush(stdin);
+}*/
+
+void menu()
+{
+    char answer;
+    int n;
+    printf("MENU FAKTORIAL");
+    printf("\n1. Iterasi");
+    printf("\n2. Rekursi");
+    printf("\n3. Selesai");
+    printf("\nMasukkan pilihan:");
+    scanf("%c", &answer);
+    fflush(stdin);
+
+    switch(answer)
+    {
+    case '1' :
+        printf("Masukkan nilai faktorial:");
+        scanf("%d", &n);
+        fflush(stdin);
+        iterasi(n);
+        printf("\nHasil faktorial=%d", iterasi(n));
+        puts("\n");
+        break;
+    case '2' :
+        printf("Masukkan nilai faktorial:");
+        scanf("%d", &n);
+        fflush(stdin);
+        rekursi(n);
+        printf("\nHasil faktorial=%d", rekursi(n));
+        puts("\n");
+        break;
+    case '3' :
+        printf("\nTERIMAKASIH");
+        exit(0);
+        break;
+    default :
+        printf("\nPilihan tidak tersedia !\n\n");
+        break;
+    }
+}
+
+int rekursi(int n)
+{
+    if(n==0)
+        return 1;
+    else
+        return (n*rekursi(n-1));
+}
+
+int iterasi(int n)
+{
+    int i, hasil2=1;
+    for(i=1; i<=n; i++)
+        hasil2=hasil2*i;
+    return (hasil2);
+}
