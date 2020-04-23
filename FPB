@@ -1,0 +1,34 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+int fpb (int x, int y)
+{
+    int hasil, sisabagi;
+    if(y<=x && x%y==0)
+    {
+        return (y);
+    }
+    else if(x<y)
+    {
+        hasil = fpb(y,x);
+        return (hasil);
+    }
+    else
+    {
+        sisabagi=x%y;
+        hasil=fpb(y, sisabagi);
+        return (hasil);
+    }
+}
+
+int main()
+{
+    int hasil, a, b;
+    printf("Masukkan bilangan pertama :");
+    scanf("%d", &a);
+    printf("Masukkan bilangan kedua :");
+    scanf("%d", &b);
+    hasil = fpb(a,b);
+    printf("FPB dari kedua angka tersebut adalah %d\n", hasil);
+    getch();
+}
